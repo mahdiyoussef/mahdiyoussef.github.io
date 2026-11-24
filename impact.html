@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Professional outcomes from Youssef Mahdi’s work in aerospace inspection and electric mobility.">
+  <meta name="theme-color" content="#f5f4ec">
+  <title>Professional impact · Youssef Mahdi</title>
+  <link rel="icon" href="assets/mark.png" type="image/png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="index.html" aria-label="Youssef Mahdi, home"><span class="mark" aria-hidden="true">YM</span><span>Youssef Mahdi</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a class="header-link" href="https://github.com/mahdiyoussef">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <header class="page-intro">
+      <a class="text-link" href="index.html#experience"><span aria-hidden="true">←</span> Experience</a>
+      <h1>Professional impact<span class="hero-period" aria-hidden="true">.</span></h1>
+      <p class="intro">Automated quality inspection and backend engineering for an electric mobility platform.</p>
+    </header>
+    <div class="impact-list">
+      <article id="inspection" class="impact-case">
+        <div>
+          <p class="kicker">Nextronic · ABA Technology · 2026</p>
+          <h2>Automated visual inspection</h2>
+          <p>I designed and deployed an on-premises system for quality assurance. YOLO locates regions in inspection images and U-Net segments the areas the system evaluates. I built the training, deployment, and monitoring workflow with PyTorch, MLflow, and Docker so the inspection could run on a local server.</p>
+          <ol class="flow impact-flow" aria-label="Visual quality inspection workflow">
+            <li>Inspection image</li>
+            <li>YOLO detection</li>
+            <li>U-Net segmentation</li>
+            <li>Quality assessment</li>
+          </ol>
+          <p>The aerospace project applied this workflow to electric motor stators. Electric motors are also used in cars. The same inspection approach could be adapted to automotive production with images, quality criteria, and validation for the new line.</p>
+          <ul class="tags" aria-label="Technologies"><li>PyTorch</li><li>OpenCV</li><li>YOLO</li><li>U-Net</li><li>MLflow</li></ul>
+        </div>
+        <dl class="impact-stats">
+          <div><dt>Inspection precision</dt><dd>99%</dd></div>
+          <div><dt>Reduction in inspection costs</dt><dd>40%</dd></div>
+        </dl>
+      </article>
+      <article id="mobility" class="impact-case">
+        <div>
+          <p class="kicker">POGO · 2023</p>
+          <h2>Electric scooter rental platform</h2>
+          <p>I contributed to the backend and mobile architecture as a member of the development team that built and launched the platform. The team used MQTT for device communication, RabbitMQ for messaging, Stripe for payments, and GitLab CI for automated deployments. The platform supported rentals and real-time fleet monitoring.</p>
+          <ul class="tags" aria-label="Technologies"><li>MQTT</li><li>RabbitMQ</li><li>Node.js</li><li>TypeScript</li><li>GitLab CI</li></ul>
+        </div>
+        <dl class="impact-stats">
+          <div><dt>Platform users after launch</dt><dd>15,000+</dd></div>
+          <div><dt>Reduction in cloud costs</dt><dd>20%</dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="source-note">Figures are from my CV. User adoption and cloud cost reduction are POGO team outcomes.</p>
+  </main>
+  <footer class="shell footer"><a class="text-link" href="index.html#experience">Experience</a><a class="text-link" href="#main">Back to top <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>

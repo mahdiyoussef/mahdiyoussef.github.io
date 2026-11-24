@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Technical case studies from Youssef Mahdi’s AI and data engineering portfolio.">
+  <meta name="theme-color" content="#f5f4ec">
+  <title>Project case studies · Youssef Mahdi</title>
+  <link rel="icon" href="assets/mark.png" type="image/png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="index.html" aria-label="Youssef Mahdi, home"><span class="mark" aria-hidden="true">YM</span><span>Youssef Mahdi</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a class="header-link" href="https://github.com/mahdiyoussef">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">
+    <header class="page-intro">
+      <a class="text-link" href="index.html#work"><span aria-hidden="true">←</span> Selected work</a>
+      <h1>Project case studies<span class="hero-period" aria-hidden="true">.</span></h1>
+      <p class="intro">How these systems ingest data, make decisions, and deliver results.</p>
+    </header>
+    <div class="case-layout">
+      <nav class="case-nav" aria-label="Case studies on this page">
+        <p class="kicker">On this page</p>
+        <ul>
+          <li><a href="#climate">Climate &amp; water</a></li>
+          <li><a href="#vision">Vision Studio</a></li>
+          <li><a href="#eeg">Stress Peaks</a></li>
+          <li><a href="#agriculture">Agents for Agriculture</a></li>
+          <li><a href="#iot">IoT intrusion detection</a></li>
+          <li><a href="#finance">Finance ETL</a></li>
+        </ul>
+      </nav>
+
+      <div class="case-list">
+        <article id="climate" class="case">
+          <p class="kicker">Geospatial data engineering</p>
+          <h2>Morocco Climate &amp; Water Observatory</h2>
+          <p class="case-lead">An observatory that brings rainfall, temperature, soil moisture, and mapped infrastructure into one view so users can compare climate and water indicators across Morocco.</p>
+          <ol class="flow" aria-label="Climate observatory data flow">
+            <li>CHIRPS, ERA5-Land, and OpenStreetMap</li>
+            <li>MinIO and Spark/Delta</li>
+            <li>Silver validation and dbt Gold models</li>
+            <li>Power BI and Streamlit</li>
+          </ol>
+          <h3>How it works</h3>
+          <p>Airflow orchestrates a medallion pipeline. Source files land in MinIO. Spark and Delta prepare regional observations, and Silver checks validate types, ranges, nulls, and duplicates before publication. dbt builds the Gold models used by the dashboards. A shared layer keeps measures such as seasonal departures and water-year rainfall totals consistent across both interfaces.</p>
+          <h3>Scale and data quality</h3>
+          <p>The repository documents <strong>120 monthly time steps</strong> across 2015–2024 and <strong>3.25 million retained rainfall grid records</strong>. Sampling, area weighting, and the distinction between global downloads and Morocco-specific outputs matter when interpreting those figures. Invalid records are quarantined at the publication gate.</p>
+          <div class="case-links">
+            <a class="text-link" href="https://github.com/mahdiyoussef/morocco-climate-and-water">Source &amp; screenshots <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://moroccoclimate2024.streamlit.app/">Streamlit dashboard <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="demo.html#observatory">Demo guide <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article id="vision" class="case">
+          <p class="kicker">Computer vision &amp; MLOps</p>
+          <h2>Vision Studio</h2>
+          <p class="case-lead">A platform for running vision workflows across different camera types and ML models from a common interface.</p>
+          <ol class="flow" aria-label="Vision Studio inference flow">
+            <li>USB, IP, or industrial camera</li>
+            <li>Camera and model adapters</li>
+            <li>Inference and project rules</li>
+            <li>Live monitoring or review</li>
+          </ol>
+          <h3>Design decision</h3>
+          <p>Camera and model interfaces keep project logic independent of hardware and framework implementations. A project can use a USB or RTSP input and switch between detection and segmentation through adapters. A Flask API and React interface expose project configuration and live monitoring, including rules and regions of interest.</p>
+          <h3>Deployment and review</h3>
+          <p>The repository provides Docker Compose for an edge setup and infrastructure definitions for Azure using Terraform, Kubernetes, and Helm. It also documents a workflow for collecting low-confidence frames for human review and possible retraining.</p>
+          <div class="case-links"><a class="text-link" href="https://github.com/mahdiyoussef/vision-studio">Source repository <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article id="eeg" class="case">
+          <p class="kicker">Signal processing</p>
+          <h2>Stress Peak Detection from EEG</h2>
+          <p class="case-lead">A collaborative project that uses signal processing and a CNN–LSTM to study stress classification from EEG recordings.</p>
+          <ol class="flow" aria-label="EEG preprocessing flow">
+            <li>Multichannel EEG</li>
+            <li>Bandpass and notch filters</li>
+            <li>Artifact removal and downsampling</li>
+            <li>Time and frequency features</li>
+          </ol>
+          <h3>From waveform to model input</h3>
+          <p>The preprocessing module reduces out-of-band noise and power-line interference, uses optional independent component analysis (ICA) for artifact removal, and downsamples the signal. It can extract and normalize time- and frequency-domain features over overlapping windows. The project combines convolutional layers for local patterns with an LSTM for temporal dependencies.</p>
+          <h3>Collaboration</h3>
+          <p>The EEG preprocessing module credits Youssef Mahdi and Hamza El Haiki as authors.</p>
+          <div class="case-links">
+            <a class="text-link" href="https://github.com/mahdiyoussef/stress-peaks-detection">Source repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/mahdiyoussef/stress-peaks-detection/blob/main/src/preprocessing/eeg_preprocessor.py">Preprocessing code <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article id="agriculture" class="case">
+          <p class="kicker">Agentic AI</p>
+          <h2>Agents for Agriculture</h2>
+          <p class="case-lead">A retrieval-augmented generation system for questions about irrigation, crop management, and water use.</p>
+          <ol class="flow" aria-label="Agriculture retrieval and reasoning flow">
+            <li>Technical documents</li>
+            <li>Semantic chunks and indexes</li>
+            <li>Hybrid retrieval and knowledge graph</li>
+            <li>Specialist agents and cited answers</li>
+          </ol>
+          <h3>Retrieval and orchestration</h3>
+          <p>The system ingests technical PDFs, indexes semantically grouped text, and combines embedding-based and keyword search. A knowledge graph adds a route for questions about relationships between domain concepts. Reranking helps select evidence for the answer, and citations connect responses back to the retrieved sources.</p>
+          <h3>Specialist agents</h3>
+          <p>The API exposes agents for tasks such as irrigation planning and climate risk. The project adds weather context and persistent user-controlled memory for farm inputs across consultations. The repository includes evaluation modules and AWS deployment configuration.</p>
+          <div class="case-links"><a class="text-link" href="https://github.com/mahdiyoussef/agents-for-agriculture">Source &amp; architecture <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article id="iot" class="case">
+          <p class="kicker">Explainable machine learning</p>
+          <h2>Explainable IoT Intrusion Detection</h2>
+          <p class="case-lead">A collaborative Kaggle project that classifies benign and malicious network traffic and examines which features drive those predictions.</p>
+          <ol class="flow" aria-label="IoT intrusion detection model flow">
+            <li>CIC IIoT 2025 traffic windows</li>
+            <li>Feature engineering and selection</li>
+            <li>CNN–BiLSTM–Transformer</li>
+            <li>Evaluation and SHAP explanations</li>
+          </ol>
+          <h3>Model and evaluation</h3>
+          <p>The PyTorch notebook implements a hybrid classifier and a lighter variant. The full model combines convolutional branches, bidirectional LSTM layers, and attention. Evaluation code calculates classification metrics and times single-sample inference. The SHAP section uses KernelExplainer to inspect global feature importance, class-level contributions, and individual predictions.</p>
+          <div class="case-links">
+            <a class="text-link" href="https://www.kaggle.com/code/mryoussefmahdi/eplainable-model-for-iot-attacks-classification">Kaggle notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="demo.html#notebook">Notebook guide <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article id="finance" class="case">
+          <p class="kicker">Cloud data engineering</p>
+          <h2>Finance ETL on Google Cloud</h2>
+          <p class="case-lead">An invoice-to-cash and support analytics project for a fictional B2B SaaS company, covering overdue invoices, payment risk, and support costs.</p>
+          <ol class="flow" aria-label="Finance analytics data flow">
+            <li>Invoices and support events</li>
+            <li>Validation and quarantine</li>
+            <li>Warehouse models and marts</li>
+            <li>Finance and support analytics</li>
+          </ol>
+          <h3>Reliable loads and business metrics</h3>
+          <p>The local implementation generates synthetic records, handles duplicates and invalid rows, and loads models for accounts receivable aging, days sales outstanding, invoice risk, and support costs. Business keys make reruns repeatable. A configurable report date makes historical runs reproducible.</p>
+          <h3>Cloud deployment design</h3>
+          <p>The GCP architecture describes separate batch and event-streaming paths using Cloud Storage, Pub/Sub, Dataflow, Cloud Composer, BigQuery, and dbt. The runnable local path provides a way to inspect data quality behavior and analytical outputs before deploying cloud infrastructure.</p>
+          <div class="case-links"><a class="text-link" href="https://github.com/mahdiyoussef/finance-etl-gcp">Source &amp; architecture <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="shell footer"><a class="text-link" href="index.html#work">Selected work</a><a class="text-link" href="#main">Back to top <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>
